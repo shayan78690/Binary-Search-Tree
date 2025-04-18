@@ -1,0 +1,24 @@
+class Solution {
+    public static void findPreSuc(Node root, Node[] pre, Node[] suc, int key) {
+        Node curr = root;
+        while(curr != null) {
+            if(curr.data <= key) {
+                curr = curr.right;
+            } else {
+                suc[0] = curr;
+                curr = curr.left;
+            }
+        }
+        
+        curr = root;
+        
+        while(curr != null) {
+            if(curr.data >= key) {
+                curr = curr.left;
+            } else {
+                pre[0] = curr;
+                curr = curr.right;
+            }
+        }
+    }
+}
